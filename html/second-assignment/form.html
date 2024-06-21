@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>설문조사 양식</title>
+</head>
+<body>
+  <header>
+    <h1>설문조사 양식</h1>
+    <p>모든 항목에 빠짐없이 체크해주십시오.</p>
+    <hr>
+  </header>
+  
+  <main>
+    <form>
+      <fieldset>
+        <legend>개인정보</legend>
+        <label for="name">이름</label>
+        <input id="name" type="text" placeholder="본명을 입력해주세요." name="name">
+        <br>
+        <label for="email">이메일</label>
+        <input id="email" type="email" placeholder="이메일을 입력해주세요." name="email">
+      </fieldset>
+
+      <fieldset>
+        <legend>설문</legend>
+
+        <p>연령대가 어떻게 되시나요?</p>
+        <input id="teen" type="radio" name="age">
+        <label for="teen">10대</label>
+        <input id="twenty" type="radio" name="age">
+        <label for="twenty">20대</label>
+        <input id="thirty" type="radio" name="age">
+        <label for="thirty">30대</label>
+        <input id="fourty" type="radio" name="age">
+        <label for="fourty">40대</label>
+        <input id="fifty" type="radio" name="age">
+        <label for="fifty">50대</label>
+        <input id="other" type="radio" name="age">
+        <label for="other">그외</label>
+
+        <p>학원 선택 시 그 기준은 어떻게 되시나요?</p>
+        <input type="checkbox" id="position" name="academy">
+        <label for="position">위치</label>
+        <input type="checkbox" id="price" name="academy">
+        <label for="price">학원비</label>
+        <input type="checkbox" id="teacher" name="academy">
+        <label for="teacher">강사</label>
+        <input type="checkbox" id="infra" name="academy">
+        <label for="infra">시설</label>
+
+        <p>하루에 잠을 몇 시간 주무시나요?</p>
+        <input type="radio" id="5hours" name="sleep">
+        <label for="5hours">5시간</label>
+        <input type="radio" id="6hours" name="sleep">
+        <label for="6hours">6시간</label>
+        <input type="radio" id="7hours" name="sleep">
+        <label for="7hours">7시간</label>
+        <input type="radio" id="8hours" name="sleep">
+        <label for="8hours">8시간</label>
+        <input type="radio" id="others" name="sleep">
+        <label for="others">그외</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>기타의견</legend>
+        <textarea cols="50" rows="3" name="comment"></textarea>
+      </fieldset>
+      <input type="submit">
+    </form>
+  </main>
+
+  <footer>
+    <hr>
+    <p>입력하느라 수고하셨습니다.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,26 @@
+*{
+  box-sizing: border-box;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+html{
+  background-color: #000000 ;
+}
+
+img{
+  width: 400px;
+  height: auto;
+  border: 10px #fff double;
+  border-radius: 50px;
+}
+
+h1{
+  font-size: 48px;
+  font-weight: 800;
+}
+
+mark{
+  background-color:chartreuse;
+}
