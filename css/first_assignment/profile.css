@@ -24,3 +24,7 @@ h1{
 mark{
   background-color:chartreuse;
 }
+
+p{
+  font-size: 16px;
+}
