@@ -21,7 +21,7 @@
   margin-left: 2px;
 }
 
-/*다크모드*/
+/*토글스위치*/
 :root {
   --background-color-light: #FFFFFF;
   --text-color-light: #000000;
@@ -37,26 +37,6 @@
   --font-size-large: 52px; /* 제목 등 큰 텍스트용 폰트 크기 */
 }
 
-body{
-  transition: background-color 0.5s, color 0.5s, border-color 0.5s;
-}
-
-body.dark-mode {
-  background-color: #000;
-  color: #ffffff;
-  transition: background-color 0.5s, color 0.5s, border-color 0.5s;
-}
-
-body.dark-mode .table th,
-body.dark-mode .table td {
-  background-color: #000;
-  color: #ffffff;
-  transition: background-color 0.5s, color 0.5s, border-color 0.5s;
-}
-
-.table th, .table td{
-  transition: background-color 0.5s, color 0.5s, border-color 0.5s;
-}
 .toggle-switch {
   position: relative;
   display: inline-block;
@@ -105,7 +85,7 @@ body.dark-mode .table td {
 
 .content {
   text-align: center;
-  transition: color 0.3s;
+ 
 }
 
 #size_cont{
