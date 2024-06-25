@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Admin Page</title>
+    <link href="index.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  </head>
+<body>
+
+  <!DOCTYPE html>
+<html lang="ko">
+<head>
+        <div class="container mt-3">
+        
+        <div id="size_cont">
+          <div id="size_cont2">
+            <div id="date" class="date"></div>
+            <div id="time">
+              <span id="hours" class="time"></span>:<span id="minutes" class="time"></span>:<span id="seconds" class="time"></span>
+            </div>
+          </div>
+
+          <div class="toggle-switch">
+            <input type="checkbox" id="darkModeToggle" class="checkbox">
+            <label for="darkModeToggle" class="label">
+                <div class="ball"></div>
+            </label>
+          </div>
+        </div>
+        <h3 class="mt-5 mb-3">신규 등록 상품</h3>
+      <form class="row row-cols-lg-auto g-3 align-items-center">
+        <div class="col-12">
+          <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
+          <select class="form-select" id="inlineFormSelectPref" >
+            <option selected>남성</option>
+            <option value="top">여성</option>
+            <option value="top" disabled>무지개</option>
+            <option value="top" disabled>전투기</option>
+            <option value="top" disabled>대통령</option>
+          </select>
+        </div>
+          <div class="col-12">
+            <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
+            <select class="form-select" id="inlineFormSelectPref">
+              <option selected disabled>카테고리</option>
+              <option value="top">상의</option>
+              <option value="bottom">하의</option>
+              <option value="shoes">신발</option>
+              <option value="others">패션잡화</option>
+            </select>
+          </div>
+          <div class="col-3">
+            <input type="text" class="form-control" placeholder="제품명을 입력해주세요." aria-label="제품명을 입력해주세요.">
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn btn-primary">조회</button>
+          </div>
+         
+          <a href="./form/join.html" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true" id="check1">회원가입</a>
+
+        </form>
+        <div class="container mt-3">
+        <table class="table table-sm">
+            <thead>
+                <!-- 열의 속성값을 나타내는 코드를 작성해주세요 (예 : 카테고리, 브랜드, 상품명, 가격) -->
+            </thead>
+            <tbody id="data-table">
+                <!-- 추후 크롤링한 데이터가 들어가는 자리 -->
+            </tbody>
+        </table>
+    </div>
+    <nav aria-label="..." style="display: inline;">
+      <ul class="pagination" style="justify-content: center;">
+        <li class="page-item disabled">
+          <a class="page-link">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item " aria-current="page">
+          <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
+   <script>
+      // 크롤링한 데이터를 아래와 같은 형태의 객체 배열로 가정합니다.
+      // 추후 데이터베이스에 있는 데이터를 쿼리문으로 불러 올 수 있게 쿼리르 작성해 볼 수 있음
+      const data = [
+          { category: "상의", brand: 'Supreme', product: '슈프림 박스로고 후드티', price: '390,000' },
+          { category: "하의", brand: 'DIESEL', product: '디젤 트랙 팬츠', price: '188,000' },
+          { category: "신발", brand: 'Nike', product: '에어포스 1', price: '137,000' },
+          { category: "패션잡화", brand: 'Music&Goods', product: '빵빵이 키링', price: '29,000' },
+          // ...
+      ];
+      
+      const dataTable = document.getElementById('data-table');
+      
+      data.forEach((item) => {
+          const row = dataTable.insertRow();
+          row.insertCell(0).innerHTML = item.category;
+          row.insertCell(1).innerHTML = item.brand;
+          row.insertCell(2).innerHTML = item.product;
+          row.insertCell(3).innerHTML = item.price;
+      });
+
+      function updateClock() {
+          var dateInfo = new Date(); 
+          var hour = modifyNumber(dateInfo.getHours());
+          var min = modifyNumber(dateInfo.getMinutes());
+          var sec = modifyNumber(dateInfo.getSeconds());
+          var year = dateInfo.getFullYear();
+          var month = dateInfo.getMonth() + 1;
+          var date = dateInfo.getDate();
+
+          updateElement('hours', hour);
+          updateElement('minutes', min);
+          updateElement('seconds', sec);
+          document.getElementById("date").innerHTML = year + "년 " + month + "월 " + date + "일";
+      }
+
+      function updateElement(id, value) {
+          var element = document.getElementById(id);
+          if (element.innerHTML !== value) {
+              element.classList.add('transitioning');
+              setTimeout(function() {
+                  element.innerHTML = value;
+              }, 250);
+              setTimeout(function() {
+                  element.classList.remove('transitioning');
+              }, 500);
+          }
+      }
+
+      function modifyNumber(time) {
+          return (parseInt(time) < 10 ? "0" : "") + time;
+      }
+
+      window.onload = function() {
+          updateClock();
+          setInterval(updateClock, 1000);
+      }
+
+        //다크모드
+        document.addEventListener('DOMContentLoaded', function() {
+          const darkModeToggle = document.getElementById('darkModeToggle');
+
+          function applyInitialTheme() {
+              const isDarkMode = localStorage.getItem('darkMode') === 'true';
+              document.body.classList.toggle('dark-mode', isDarkMode);
+              darkModeToggle.checked = isDarkMode;
+          }
+
+          function toggleDarkMode() {
+              const isDarkMode = document.body.classList.toggle('dark-mode');
+              localStorage.setItem('darkMode', isDarkMode);
+          }
+
+          applyInitialTheme();
+          darkModeToggle.addEventListener('change', toggleDarkMode);
+      });
+      document.addEventListener('DOMContentLoaded', function() {
+          const alim = document.querySelector("#check1");
+
+          alim.addEventListener('click', function(event) {
+              event.preventDefault(); // 링크 기본 동작을 막음
+
+              // 알러트 창을 띄움
+              if (confirm("혹시 다크 모드는 해 보셨나요?\n오른쪽 상단에 있는데...")) {
+                  // 확인 버튼을 누르면 링크로 이동
+                  window.location.href = alim.href;
+              }
+          });
+      });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>

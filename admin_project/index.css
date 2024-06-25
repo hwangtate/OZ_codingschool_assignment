@@ -1,0 +1,119 @@
+.time, .date {
+  display: inline-block;
+  font-size: 18px;
+  font-weight:500;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.time.transitioning {
+  opacity: 0.7;
+}
+
+#minutes{
+  margin : 0px 2px;
+}
+
+#hours{
+  margin-right: 2px;
+}
+
+#seconds{
+  margin-left: 2px;
+}
+
+/*다크모드*/
+:root {
+  --background-color-light: #FFFFFF;
+  --text-color-light: #000000;
+  --toggle-background-light: #CCCCCC;
+  --toggle-ball-light: #FFFFFF;
+
+  --background-color-dark: #333333;
+  --text-color-dark: #FFFFFF;
+  --toggle-background-dark: #4D4D4D;
+  --toggle-ball-dark: #FFFFFF;
+
+  --font-size-base: 32px; /* 기본 텍스트 크기 */
+  --font-size-large: 52px; /* 제목 등 큰 텍스트용 폰트 크기 */
+}
+
+body{
+  transition: background-color 0.5s, color 0.5s, border-color 0.5s;
+}
+
+body.dark-mode {
+  background-color: #000;
+  color: #ffffff;
+  transition: background-color 0.5s, color 0.5s, border-color 0.5s;
+}
+
+body.dark-mode .table th,
+body.dark-mode .table td {
+  background-color: #000;
+  color: #ffffff;
+  transition: background-color 0.5s, color 0.5s, border-color 0.5s;
+}
+
+.table th, .table td{
+  transition: background-color 0.5s, color 0.5s, border-color 0.5s;
+}
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px; /* 너비 조정 */
+  height: 25px; /* 높이 조정 */
+  margin-top: 1vh;
+}
+
+.toggle-switch .checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-switch .label {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--toggle-background-light);
+  transition: background-color 0.4s;
+  border-radius: 52px; /* 둥근 모서리 반경 조정 */
+}
+
+.toggle-switch .label:before {
+  position: absolute;
+  content: "";
+  height: 22px; /* 내부 원 높이 조정 */
+  width: 22px; /* 내부 원 너비 조정 */
+  left: 2px;
+  bottom: 2px;
+  background-color: var(--toggle-ball-light);
+  transition: transform 0.4s;
+  border-radius: 50%;
+}
+
+.toggle-switch input:checked + .label {
+  background-color: var(--toggle-background-dark);
+}
+
+.toggle-switch input:checked + .label:before {
+  transform: translateX(24px); /* 내부 원 이동 거리 조정 */
+}
+
+.content {
+  text-align: center;
+  transition: color 0.3s;
+}
+
+#size_cont{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#size_cont2{
+  display: block;
+}
