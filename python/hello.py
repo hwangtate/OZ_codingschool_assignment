@@ -1,4 +1,9 @@
-def print_info(**args):
-    print(f"이름 : {args['name']} 나이 : {args['age']} 성별 : {args['sex']}")
+def odd_numbers(n: int):
+    for i in range(n + 1):
+        if i % 2 != 0:
+            yield i
 
-print_info(name = "황태영", age = 20, sex = "남자")
+# 제너레이터 함수 사용 예시
+odd_list = list(odd_numbers(16))
+
+print(odd_list)
