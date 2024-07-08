@@ -117,7 +117,7 @@ def move_player(board_size, player_position, treasure_position):
             print(f"보물을 찾았습니다!\n이동횟수 : {count}\n게임을 종료합니다.")
             print("=" * 50)
             break
-        
+
 
 # 게임 실행
 def play_game(board_size):
