@@ -15,9 +15,8 @@ class Transaction:
         self.__balance = (self.__balance,)
 
         return f"거래 타입 : {self.transaction_type}\n거래 금액 : {self.amount}\n거래 후 잔고 : {self.__balance}"
-    
-    
+
 a = Transaction("입금", 1000, 500)
 
-print(a.__str__())
-print(a.to_tuple())
+if __name__ == "__main__":
+    print(a.__str__())
