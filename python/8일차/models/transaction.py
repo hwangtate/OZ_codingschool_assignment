@@ -20,3 +20,4 @@ a = Transaction("입금", 1000, 500)
 
 if __name__ == "__main__":
     print(a.__str__())
+    print(a.to_tuple())
