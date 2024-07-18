@@ -74,4 +74,4 @@ cursor = connection.cursor()
 # result = cursor.fetchone()
 # print(result)
 
-connection.close()
+connection.close() 
