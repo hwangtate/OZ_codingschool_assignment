@@ -4,14 +4,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    data = {
-        'title' : 'Flask Jinja Template',
-        'user' : 'taeyeong',
-        'is_admin' : True,
-        'item_list' : ["itme1", "item2", "item3"]
-    }
+    users = [
+        {"username" : "traveler", "name" : "Alex"},
+        {"username" : "photographer", "name" : "Sam"},
+        {"username" : "gourmet", "name" : "Chris"}
+    ]
 
-    return render_template('index.html', data=data)
+    return render_template('index.html',users=users)
 
 if __name__ == '__main__':
     app.run(debug=True)

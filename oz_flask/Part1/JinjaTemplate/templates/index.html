@@ -2,20 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{data.title}}</title>
+    <title>user</title>
 </head>
 <body>
-    <h1> Hi, {{data.user}} </h1>
-
-    {% if data.is_admin%}
-        <p>You are Admin</p>
-    {% else %}
-        <p>You are not Admin</p>
-    {% endif %}
+    <h1> Hi </h1>
 
     <ul>
-        {% for item in data.item_list%}
-        <li> {{item}}</li>
+        {% for user_info in users %}
+        <li> {{user_info.name}} {{user_info.username}}</li>
         {% endfor %}
     </ul>
 </body>
