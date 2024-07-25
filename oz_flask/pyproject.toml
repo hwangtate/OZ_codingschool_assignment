@@ -9,6 +9,9 @@ readme = "README.md"
 python = "^3.9.6"
 flask = "^3.0.3"
 requests = "^2.32.3"
+flask-restful = "^0.3.10"
+flask-smorest = "^0.44.0"
+marshmallow = "^3.21.3"
 
 
 [build-system]
