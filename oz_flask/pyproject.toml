@@ -12,6 +12,10 @@ requests = "^2.32.3"
 flask-restful = "^0.3.10"
 flask-smorest = "^0.44.0"
 marshmallow = "^3.21.3"
+flask-mysqldb = "^2.0.0"
+flask-sqlalchemy = "^3.1.1"
+pymysql = "^1.1.1"
+pyyaml = "^6.0.1"
 
 
 [build-system]
